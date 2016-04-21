@@ -1,1 +1,7 @@
-Hello World!
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% for article in articles %}
+            <li><a href="article/{{ article.id }}">{{ article.title }}</a></li>
+            <p>{{ article.body[:155] ~ '...' }}</p>
+    {% endfor %}
+{% endblock %}

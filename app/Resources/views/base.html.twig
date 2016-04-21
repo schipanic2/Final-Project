@@ -6,18 +6,22 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" type="text/css" href="http://yegor256.github.io/tacit/tacit.min.css"/>
+        <style>
+            ul li{
+                display:inline;
+            }
+        </style>
     </head>
     <body>
         {% block body %}{% endblock %}
         <ul>
-            <li><a href="{{ path('news_default_index') }}">Homepage!</a></li>
-            <li><a href="{{ path('news_default_about') }}">About Us</a></li>
-            <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
-            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-            <li><a href="{{ path('article_index') }}">Articles</a></li>
+            <li><a href="{{ path('news_default_index') }}">Homepage! |</a></li>
+            <li><a href="{{ path('news_default_about') }}">About Us |</a></li>
+            <li><a href="{{ path('fos_user_security_login') }}">Login |</a></li>
+            <li><a href="{{ path('fos_user_security_logout') }}">Logout |</a></li>
+            <li><a href="{{ path('article_index') }}">Articles |</a></li>
             <li><a href="{{ path('category_index') }}">Category</a></li>
             <li><a href=""></a></li>
-
         </ul>
         {% block javascripts %}{% endblock %}
     </body>

@@ -12,7 +12,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('NewsBundle:Default:index.html.twig');
+        $articles = $this->getDoctrine()->getRepository('NewsBundle:Article')->findBy(array(), array('id' => 'DESC'), 3);
+        return $this->render('NewsBundle:Default:index.html.twig', array("articles" => $articles));
     }
     
     /**
