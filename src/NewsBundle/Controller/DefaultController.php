@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/home")
      */
     public function indexAction()
     {
@@ -22,5 +22,6 @@ class DefaultController extends Controller
     {
         return $this->render('NewsBundle:Default:about.html.twig');
     }
+    
 
 }
