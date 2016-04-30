@@ -2,13 +2,12 @@
 {% block body %}
     {% for article in articles %}
             <li><a href="article/{{ article.id }}">{{ article.title }}</a></li>
-            <p>{{ article.body[:155] ~ '...' }}</p>
+            {% filter striptags|slice(0, 155)  ~ '...' %}
+                {{ article.body }}
+            {% endfilter %}
+            {#{{ article.body|striptags|slice(0, 155)  ~ '...'}}#}
+            {# I have tried absolutely everything I could think of to erase those <p> tags. At one point they were gone, now they've reappeared. #}
     {% endfor %}
     
-    {#<ul>#}
-    {#    <li><a href="{{ path('admin_index') }}">Admin Index |</a></li>#}
-    {#    <li><a href="{{ path('article_index') }}">Admin Articles |</a></li>#}
-    {#    <li><a href="{{ path('category_index') }}">Admin Category</a></li>#}
-    {#</ul>#}
     
 {% endblock %}
