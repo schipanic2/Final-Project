@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>Congrats, you're our admin.</p>
+    <ul>
+        <li><a href="{{ path('admin_index') }}">Admin Index |</a></li>
+        <li><a href="{{ path('admin_articleIndex') }}">Admin Index Article |</a></li>
+        <li><a href="{{ path('admin_articleNew') }}">New Article |</a></li>
+        <li><a href="{{ path('category_index') }}">Admin Category</a></li>
+    </ul>
+    
+{% endblock %}

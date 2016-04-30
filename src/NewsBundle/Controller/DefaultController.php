@@ -8,12 +8,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/home")
+     * @Route("/")
      */
     public function indexAction()
     {
         $articles = $this->getDoctrine()->getRepository('NewsBundle:Article')->findBy(array(), array('id' => 'DESC'), 3);
-        return $this->render('NewsBundle:Default:index.html.twig', array("articles" => $articles));
+        return $this->render(':default:index.html.twig', array("articles" => $articles));
     }
     
     /**
@@ -21,8 +21,8 @@ class DefaultController extends Controller
      */
     public function aboutAction()
     {
-        return $this->render('NewsBundle:Default:about.html.twig');
+        return $this->render(':default:about.html.twig');
     }
     
-
+    
 }

@@ -18,8 +18,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new NewsBundle\NewsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            //VichuploaderBundle
-            //TinymceBundle
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            // new tinymce\
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

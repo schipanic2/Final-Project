@@ -11,6 +11,16 @@
                 display:inline;
             }
         </style>
+        <script src="/../../news/vendor/tinymce/tinymce/tinymce.min.js"></script>
+          <script type="text/javascript">
+          console.log("here");
+          tinymce.init({
+            selector: '.mytextarea',
+            protect: [
+            /\<\/?(if|endif)\>/g
+            ]// Protect <if> & </endif>
+          });
+        </script>
     </head>
     <body>
         {% block body %}{% endblock %}
@@ -21,8 +31,15 @@
             <li><a href="{{ path('fos_user_security_logout') }}">Logout |</a></li>
             <li><a href="{{ path('article_index') }}">Articles |</a></li>
             <li><a href="{{ path('category_index') }}">Category</a></li>
-            <li><a href=""></a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <ul>
+                    <li><a href="{{ path('admin_index') }}">Admin Index |</a></li>
+                    <li><a href="{{ path('admin_articleIndex') }}">Admin Articles |</a></li>
+                    <li><a href="{{ path('admin_categoryIndex') }}">Admin Category</a></li>
+                </ul>
+            {% endif %}
         </ul>
+        
         {% block javascripts %}{% endblock %}
     </body>
 </html>

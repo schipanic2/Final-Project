@@ -4,4 +4,11 @@
             <li><a href="article/{{ article.id }}">{{ article.title }}</a></li>
             <p>{{ article.body[:155] ~ '...' }}</p>
     {% endfor %}
+    
+    {#<ul>#}
+    {#    <li><a href="{{ path('admin_index') }}">Admin Index |</a></li>#}
+    {#    <li><a href="{{ path('article_index') }}">Admin Articles |</a></li>#}
+    {#    <li><a href="{{ path('category_index') }}">Admin Category</a></li>#}
+    {#</ul>#}
+    
 {% endblock %}

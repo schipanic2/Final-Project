@@ -18,7 +18,7 @@ framework:
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:      { enabled: true, enable_annotations: true }
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -70,3 +70,13 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: NewsBundle\Entity\User
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        articles_image:
+            uri_prefix:         /images/articles
+            upload_destination: %kernel.root_dir%/../web/images/articles
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true

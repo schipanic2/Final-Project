@@ -39,25 +39,25 @@ class CategoryController extends Controller
      * @Route("/new", name="category_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
-    {
-        $category = new Category();
-        $form = $this->createForm('NewsBundle\Form\CategoryType', $category);
-        $form->handleRequest($request);
+    // public function newAction(Request $request)
+    // {
+    //     $category = new Category();
+    //     $form = $this->createForm('NewsBundle\Form\CategoryType', $category);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($category);
-            $em->flush();
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $em = $this->getDoctrine()->getManager();
+    //         $em->persist($category);
+    //         $em->flush();
 
-            return $this->redirectToRoute('category_show', array('id' => $category->getId()));
-        }
+    //         return $this->redirectToRoute('category_show', array('id' => $category->getId()));
+    //     }
 
-        return $this->render('category/new.html.twig', array(
-            'category' => $category,
-            'form' => $form->createView(),
-        ));
-    }
+    //     return $this->render('category/new.html.twig', array(
+    //         'category' => $category,
+    //         'form' => $form->createView(),
+    //     ));
+    // }
 
     /**
      * Finds and displays a Category entity.
@@ -75,32 +75,32 @@ class CategoryController extends Controller
         ));
     }
 
-    /**
-     * Displays a form to edit an existing Category entity.
-     *
-     * @Route("/{id}/edit", name="category_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, Category $category)
-    {
-        $deleteForm = $this->createDeleteForm($category);
-        $editForm = $this->createForm('NewsBundle\Form\CategoryType', $category);
-        $editForm->handleRequest($request);
+    // /**
+    //  * Displays a form to edit an existing Category entity.
+    //  *
+    //  * @Route("/{id}/edit", name="category_edit")
+    //  * @Method({"GET", "POST"})
+    //  */
+    // public function editAction(Request $request, Category $category)
+    // {
+    //     $deleteForm = $this->createDeleteForm($category);
+    //     $editForm = $this->createForm('NewsBundle\Form\CategoryType', $category);
+    //     $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($category);
-            $em->flush();
+    //     if ($editForm->isSubmitted() && $editForm->isValid()) {
+    //         $em = $this->getDoctrine()->getManager();
+    //         $em->persist($category);
+    //         $em->flush();
 
-            return $this->redirectToRoute('category_edit', array('id' => $category->getId()));
-        }
+    //         return $this->redirectToRoute('category_edit', array('id' => $category->getId()));
+    //     }
 
-        return $this->render('category/edit.html.twig', array(
-            'category' => $category,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+    //     return $this->render('category/edit.html.twig', array(
+    //         'category' => $category,
+    //         'edit_form' => $editForm->createView(),
+    //         'delete_form' => $deleteForm->createView(),
+    //     ));
+    // }
 
     /**
      * Deletes a Category entity.
@@ -137,4 +137,5 @@ class CategoryController extends Controller
             ->getForm()
         ;
     }
+    
 }

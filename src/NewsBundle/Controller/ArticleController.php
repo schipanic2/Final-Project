@@ -33,31 +33,31 @@ class ArticleController extends Controller
         ));
     }
 
-    /**
-     * Creates a new Article entity.
-     *
-     * @Route("/new", name="article_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $article = new Article();
-        $form = $this->createForm('NewsBundle\Form\ArticleType', $article);
-        $form->handleRequest($request);
+    // /**
+    //  * Creates a new Article entity.
+    //  *
+    //  * @Route("/new", name="article_new")
+    //  * @Method({"GET", "POST"})
+    //  */
+    // public function newAction(Request $request)
+    // {
+    //     $article = new Article();
+    //     $form = $this->createForm('NewsBundle\Form\ArticleType', $article);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $em = $this->getDoctrine()->getManager();
+    //         $em->persist($article);
+    //         $em->flush();
 
-            return $this->redirectToRoute('article_show', array('id' => $article->getId()));
-        }
+    //         return $this->redirectToRoute('article_show', array('id' => $article->getId()));
+    //     }
 
-        return $this->render('article/new.html.twig', array(
-            'article' => $article,
-            'form' => $form->createView(),
-        ));
-    }
+    //     return $this->render('article/new.html.twig', array(
+    //         'article' => $article,
+    //         'form' => $form->createView(),
+    //     ));
+    // }
 
     /**
      * Finds and displays a Article entity.
@@ -75,32 +75,32 @@ class ArticleController extends Controller
         ));
     }
 
-    /**
-     * Displays a form to edit an existing Article entity.
-     *
-     * @Route("/{id}/edit", name="article_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, Article $article)
-    {
-        $deleteForm = $this->createDeleteForm($article);
-        $editForm = $this->createForm('NewsBundle\Form\ArticleType', $article);
-        $editForm->handleRequest($request);
+    // /**
+    //  * Displays a form to edit an existing Article entity.
+    //  *
+    //  * @Route("/{id}/edit", name="article_edit")
+    //  * @Method({"GET", "POST"})
+    //  */
+    // public function editAction(Request $request, Article $article)
+    // {
+    //     $deleteForm = $this->createDeleteForm($article);
+    //     $editForm = $this->createForm('NewsBundle\Form\ArticleType', $article);
+    //     $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
+    //     if ($editForm->isSubmitted() && $editForm->isValid()) {
+    //         $em = $this->getDoctrine()->getManager();
+    //         $em->persist($article);
+    //         $em->flush();
 
-            return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
-        }
+    //         return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
+    //     }
 
-        return $this->render('article/edit.html.twig', array(
-            'article' => $article,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+    //     return $this->render('article/edit.html.twig', array(
+    //         'article' => $article,
+    //         'edit_form' => $editForm->createView(),
+    //         'delete_form' => $deleteForm->createView(),
+    //     ));
+    // }
 
     /**
      * Deletes a Article entity.

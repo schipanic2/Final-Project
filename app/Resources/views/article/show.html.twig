@@ -14,23 +14,36 @@
                 <td>{{ article.title }}</td>
             </tr>
             <tr>
+                <th>Image</th>
+                <td><img src="../../../web/images/articles/{{ article.imageName }}"></td>
+            </tr>
+            <tr>
                 <th>Body</th>
-                <td>{{ article.body }}</td>
+                <td>{{ article.body|striptags }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
+        
+        
+        {#<li>#}
+        {#    <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>#}
+        {#</li>#}
+        {#<li>#}
+        {#    {{ form_start(delete_form) }}#}
+        {#        <input type="submit" value="Delete">#}
+        {#    {{ form_end(delete_form) }}#}
+        {#</li>#}
+        {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('admin_articleIndex') }}">Back to the list</a>
+        </li>
+        {% endif %}
+        {% if not is_granted('ROLE_ADMIN') %}
         <li>
             <a href="{{ path('article_index') }}">Back to the list</a>
         </li>
-        <li>
-            <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+        {% endif %}
     </ul>
 {% endblock %}
